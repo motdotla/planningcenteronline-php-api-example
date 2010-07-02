@@ -1,0 +1,39 @@
+h1. Planning Center Online PHP API Example
+
+p. This is some example php code to get you started using the Planning Center API (http://www.planningcenteronline.com/home/api) with php. It handles connecting through oauth, generating the necessary tokens, and making a PUT request to update a person's data. From here you should be able to build on top of (storing tokens, making other types of PUT, POST, DELETE, and GET requests.) Feel free to fork this.
+
+h2. Overview
+
+h3. common.php
+
+p. This contains your setup information. It has some configuration information and a common run_curl method.
+
+h3. index.php
+
+p. This starts off the app. It immediately uses your $key and $secret from Planning Center Online to make the request to the OAuth authorize page - thereby granting access to this little client application.
+
+h3. complete.php
+
+p. This is the page that Planning Center Online comes back to (assuming you set this correctly when registering a new oauth client application on planningcenteronline.com.)
+
+p. This file handles trading the keys and secrets around and then makes a put request to update a person's information using the people api portion of the Planning Center API.
+
+h3. OAuth.php
+
+p. This is a standard library used by most php programmers for OAuth authentication. It provides some helpers to make the OAuth authorization process easier. It's available for download here: http://github.com/hugowetterberg/php-oauth-lib
+
+h2. Setting up the app for testing.
+
+Before anything, register your application with Planning Center Online. Contact support@planningcenteronline.com to do so. We'll send you back a key and a secret that you can use.
+
+# Set your key in common.php
+# Set your secret in common.php
+# Set your callback url in common.php (this should be the url you want Planning Center to return to after the person has authorized use of your OAuth client application.)
+# Set $person_id to the id of a person in your people list of your account in complete.php.
+# Change some parameters for that person's first name and last name to see that data get updated.
+# Put the app online to test.
+# Expand on these basics to build your own client application using Planning Center Online's data.
+
+h2. Question/Comments
+
+Email support@planningcenteronline.com please.
