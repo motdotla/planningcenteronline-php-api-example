@@ -33,6 +33,19 @@ parse_str($access_ret, $access_token);
 
 $access_consumer = new OAuthConsumer($access_token['oauth_token'], $access_token['oauth_token_secret'], NULL);
 
+// =========== NOTE: Important =======================
+// The $access_token array here is what you want to save to your db for your application. 
+// That way you can repull out the oauth_token and oauth_token_secret any time you wish
+// and re-initiate the consumer without going back to the oauth authorize page.
+// 
+// The Array looks something like this:
+// access_token: Array ( [oauth_token] => 3SBONsKwtq3tOaMS8QXq [oauth_token_secret] => fw518viDIL95oRS3WP279WcuUrJb5q2F0FxXOu7A ) 1
+// 
+// So you might store this data to 2 fields in your database called consumer_aouth_token 
+// and consumer_oauth_token_secret or the whole array into a serialized column in your table 
+// (if using mysql for your db)
+// 
+// $access_consumer = new OAuthConsumer($consumer_oauth_token, $consumer_oauth_token_secret, NULL);
 
 
 
